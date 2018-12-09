@@ -1,0 +1,9 @@
+ALTER TABLE planet_osm_point ENABLE TRIGGER planet_osm_point_user_insert;
+ALTER TABLE planet_osm_point ENABLE TRIGGER planet_osm_point_user_update;
+ALTER TABLE planet_osm_point ENABLE TRIGGER planet_osm_point_user_delete;
+ALTER TABLE planet_osm_line ENABLE TRIGGER planet_osm_line_user_insert;
+ALTER TABLE planet_osm_line ENABLE TRIGGER planet_osm_line_user_update;
+ALTER TABLE planet_osm_line ENABLE TRIGGER planet_osm_line_user_delete;
+ALTER TABLE planet_osm_polygon ENABLE TRIGGER planet_osm_polygon_user_insert;
+ALTER TABLE planet_osm_polygon ENABLE TRIGGER planet_osm_polygon_user_update;
+ALTER TABLE planet_osm_polygon ENABLE TRIGGER planet_osm_polygon_user_delete;
