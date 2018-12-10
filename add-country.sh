@@ -4,10 +4,9 @@ then
 	exit
 fi
 
-mkdir $1
-
-BASE_DIR=/home/osm
-WORKOSM_DIR=/home/osm/$1
+BASE_DIR=/home/osmimport
+WORKOSM_DIR=/home/data/$1
+mkdir $WORKOSM_DIR
 PBF_FILE=$1-latest.osm.pbf
 
 cd $WORKOSM_DIR
@@ -24,3 +23,5 @@ PGHOST=localhost
 psql -d osm -U postgres -h $PGHOST -f $BASE_DIR/sql/before.sql
 osm2pgsql -s -C 1200 -a -l -d osm -U postgres -H $PGHOST $PBF_FILE
 psql -d osm -U postgres -h $PGHOST -f $BASE_DIR/sql/after.sql
+
+rm $PBF_FILE
