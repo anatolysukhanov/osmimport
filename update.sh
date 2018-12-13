@@ -8,6 +8,6 @@ for f in $WORKOSM_DIR/*; do
 	country=$(basename "$f")
 	cd $WORKOSM_DIR/$country
         osmosis --read-replication-interval workingDirectory="." --simplify-change --write-xml-change
-        osm2pgsql --cache 300 -s -a -l -d osm -U postgres -H $PGHOST change.osc
+        osm2pgsql -s --cache 300 -a -l --style ./osm2pgsql/default.style -d osm -U postgres -H $PGHOST change.osc
     fi
 done

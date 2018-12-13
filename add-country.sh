@@ -21,7 +21,7 @@ curl -s -L -o "${WORKOSM_DIR}/state.txt" "${REPLICATION_BASE_URL}/${REPLICATION_
 
 PGHOST=localhost
 psql -d osm -U postgres -h $PGHOST -f $BASE_DIR/sql/before.sql
-osm2pgsql -s -C 1200 -a -l -d osm -U postgres -H $PGHOST $PBF_FILE
+osm2pgsql -s --cache 1200 -a -l --style ./osm2pgsql/default.style -d osm -U postgres -H $PGHOST $PBF_FILE
 psql -d osm -U postgres -h $PGHOST -f $BASE_DIR/sql/after.sql
 
 rm $PBF_FILE
